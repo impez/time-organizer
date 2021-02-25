@@ -1,25 +1,51 @@
-import React from "react";
-import { FormGroup, H5, InputGroup, Intent, Switch } from "@blueprintjs/core";
+import React, { useState, useEffect } from "react";
+import { Button } from "@blueprintjs/core";
 
 const Login = () => {
+  const [name, setName] = useState("");
+  const [password, setPassword] = useState("");
+
+  const handleNameChange = (e) => {
+    setName(e.target.value);
+  };
+
+  const handlePasswordChange = (e) => {
+    setPassword(e.target.value);
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+  };
+
   return (
-    <div className="container">
-      <form>
-        <div class="bp3-input-group .modifier">
+    <div className="container login">
+      <form onSubmit={handleSubmit}>
+        <h1>timeorganiza</h1>
+        <div className="bp3-input-group .modifier">
           <input
             type="text"
-            class="bp3-input"
+            className="bp3-input"
             placeholder="Enter your username..."
+            value={name}
+            onChange={handleNameChange}
           />
-          <span class="bp3-icon bp3-icon-filter"></span>
+          <i className="bp3-icon bp3-icon-user "></i>
         </div>
-        <div class="bp3-input-group .modifier">
+        <div className="bp3-input-group .modifier">
           <input
             type="password"
-            class="bp3-input"
+            className="bp3-input"
             placeholder="Enter your password..."
+            value={password}
+            onChange={handlePasswordChange}
           />
-          <i class="bp3-button bp3-minimal bp3-intent-warning bp3-icon-lock"></i>
+          <i className="bp3-button bp3-minimal bp3-intent-warning bp3-icon-lock"></i>
+        </div>
+        <div>
+          <Button type="submit" text="Login" />
+          <Button type="button" minimal="true">
+            Register
+          </Button>
         </div>
       </form>
     </div>

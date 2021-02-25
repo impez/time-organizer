@@ -14,5 +14,24 @@ body {
 
 .container {
   display: flex;
-  border: 1px solid black;
+}
+
+.login {
+  height: 100vh;
+  justify-content: center;
+  align-items: center;
+}
+
+.login > * > * {
+  margin: 0.25em 0;
+}
+
+.login button {
+  margin: 1em auto;
+  width: 50%;
+}
+
+.login form {
+  display: flex;
+  flex-flow: column;
 }
